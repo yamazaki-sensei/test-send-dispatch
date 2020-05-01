@@ -8,14 +8,14 @@ on:
     types:
       - created
 jobs:
-  create-repository-dispatch:
+  Create Repository Dispatch:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
     - name: Repository Dispatch
-      uses: ./
+    - uses: peter-evans/repository-dispatch@v1
       with:
-        token: ${{ secrets.REPO_ACCESS_TOKEN }}
+        token: ${{ secrets.GITHUB_TOKEN }}
         event-type: release-created
+        repository: yamazaki-sensei/test-receive-dispatch
         client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
