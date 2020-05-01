@@ -1,0 +1,21 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Create Repository Dispatch on release
+
+on:
+  release:
+  push:
+    types:
+      - created
+jobs:
+  create-repository-dispatch:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Repository Dispatch
+      uses: ./
+      with:
+        token: ${{ secrets.REPO_ACCESS_TOKEN }}
+        event-type: release-created
+        client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
