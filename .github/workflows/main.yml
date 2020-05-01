@@ -4,7 +4,6 @@ name: Create Repository Dispatch on release
 
 on:
   release:
-  push:
     types:
       - created
 jobs:
@@ -13,7 +12,7 @@ jobs:
 
     steps:
     - name: Repository Dispatch
-    - uses: peter-evans/repository-dispatch@v1
+      uses: peter-evans/repository-dispatch@v1
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         event-type: release-created
