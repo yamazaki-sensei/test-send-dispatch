@@ -7,7 +7,7 @@ on:
     types:
       - created
 jobs:
-  Create Repository Dispatch:
+  create_repository_dispatch:
     runs-on: ubuntu-latest
 
     steps:
