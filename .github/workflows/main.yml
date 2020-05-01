@@ -17,4 +17,4 @@ jobs:
         token: ${{ secrets.PERSONAL_TOKEN }}
         event-type: release-created
         repository: yamazaki-sensei/test-receive-dispatch
-        client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
+        client-payload: '{"released_ref": "${{ github.ref }}", "released_sha": "${{ github.sha }}"}'
